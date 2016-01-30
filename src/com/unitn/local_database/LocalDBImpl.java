@@ -1,10 +1,16 @@
 package com.unitn.local_database;
 
+import com.unitn.local_database.dao.Dao;
+import com.unitn.local_database.entities.MeasureData;
+import com.unitn.local_database.entities.UserData;
+
 import javax.jws.WebService;
+import javax.persistence.EntityManager;
 import javax.xml.ws.Endpoint;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URISyntaxException;
+import java.util.List;
 
 /**
  * Created by erinda on 1/24/16.
@@ -37,5 +43,50 @@ public class LocalDBImpl implements LocalDB {
         return LocalDB.class.getSimpleName();
     }
 
+    @Override
+    public void saveData(MeasureData md) {
+        Dao.saveEntity(md);
+    }
+
+    @Override
+    public List<MeasureData> getLatestData(int id, int limit) {
+        EntityManager em = Dao.instance.createEntityManager();
+
+        List<MeasureData> ls = em
+                .createQuery(
+                        "SELECT l from MeasureData l "
+                                + "WHERE l.idTelegram = :id")
+                .setParameter("id", id)
+                .getResultList();
+
+        Dao.instance.closeConnections(em);
+        return ls;
+    }
+
+
+    @Override
+    public boolean userExists(int id){
+        if(getUser(id) != null){
+            return true;
+        }
+
+        return false;
+    }
+
+
+    @Override
+    public UserData getUser(int id){
+        EntityManager em = Dao.instance.createEntityManager();
+        UserData p = em.find(UserData.class, id);
+        Dao.instance.closeConnections(em);
+
+        return p;
+    }
+
+
+    @Override
+    public void createUser(UserData user){
+        Dao.saveEntity(user);
+    }
 
 }

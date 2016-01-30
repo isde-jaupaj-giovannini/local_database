@@ -13,6 +13,11 @@
         <dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.2.8"/>
 
         <dependency org="javax" name="javaee-api" rev="7.0"/>
+        <dependency org="org.projectlombok" name="lombok" rev="1.16.6"/>
+
+        <dependency org="org.xerial" name="sqlite-jdbc" rev="3.7.2"/>
+        <dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="2.5.2"/>
+
     </dependencies>
 
 </ivy-module>
