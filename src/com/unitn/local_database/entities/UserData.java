@@ -24,5 +24,5 @@ public class UserData {
     private long birthTimestamp;
 
     private int weight;
-    private int height;
+    private float  height;
 }
