@@ -25,4 +25,6 @@ public class UserData {
 
     private int weight;
     private float  height;
+
+    private long projectId;
 }
