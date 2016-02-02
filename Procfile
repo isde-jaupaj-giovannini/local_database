@@ -1,0 +1,1 @@
+web:   ${ANT_HOME}/bin/ant start
