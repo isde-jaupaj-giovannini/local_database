@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="local_database" default="run" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="local_database" default="start" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
     <!-- PART 1: Ivy properties, download, installation and configuration -->
     <property name="ivy.install.version" value="2.4.0-rc1"/>
     <property name="ivy.jar.dir" value="${basedir}/ivy"/>
@@ -66,7 +66,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="run" depends="install">
+    <target name="start" depends="install">
         <echo message="app start introsde.assignment.soap.PeopleImpl in ${build.dir}"/>
         <java classname="com.unitn.local_database.LocalDBImpl" classpath="${build.dir}" fork="true">
             <arg value="$JAVA_OPTS  -cp"/>
