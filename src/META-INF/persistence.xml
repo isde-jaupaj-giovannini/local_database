@@ -7,12 +7,22 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.unitn.local_database.entities.MeasureData</class>
         <class>com.unitn.local_database.entities.UserData</class>
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:localdb.sqlite" />
 
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-225-199-245.compute-1.amazonaws.com:5432/dfm878ls6fslj8?sslmode=require" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.user" value="bzwaengihrqqwn" />
+            <property name="javax.persistence.jdbc.password" value="7rc6Vb6IqEcJum0h0wTLu1wWl0" />
+            <!--<property name="eclipselink.logging.level" value="ALL" />-->
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
+
+
+        <!--<properties>-->
+            <!--<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:localdb.sqlite" />-->
+        <!--</properties>-->
     </persistence-unit>
 
 </persistence>
