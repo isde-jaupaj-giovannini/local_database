@@ -1,1 +1,1 @@
-web:   ${ANT_HOME}/bin/ant start
+web:    ant start
