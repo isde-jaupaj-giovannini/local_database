@@ -38,4 +38,8 @@ public interface LocalDB {
     @WebMethod()
     @WebResult()
     void createUser(UserData user);
+
+    @WebMethod()
+    @WebResult()
+    Integer totalSteps(long t1, long t2);
 }

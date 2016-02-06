@@ -73,6 +73,23 @@ public class LocalDBImpl implements LocalDB {
         return false;
     }
 
+    @Override
+    public Integer totalSteps(long t1, long t2) {
+        EntityManager em = Dao.instance.createEntityManager();
+
+        int sum = em
+                .createQuery(
+                        "SELECT SUM(l.steps) from MeasureData l "
+                                + "WHERE l.timestamp >=  :t1 AND l.timestamp <= :t2")
+                .setParameter("t1", t1)
+                .setParameter("t2", t2)
+                .getFirstResult();
+
+        Dao.instance.closeConnections(em);
+
+
+        return sum;
+    }
 
     @Override
     public UserData getUser(int id){
