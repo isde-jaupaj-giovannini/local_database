@@ -88,7 +88,6 @@ public class LocalDBImpl implements LocalDB {
 
         Dao.instance.closeConnections(em);
 
-
         return ( sum.get(0) != null ? sum.get(0).intValue() : 0 );
     }
 
