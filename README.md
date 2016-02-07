@@ -8,12 +8,12 @@ is responsible for handling all data related requests. Mainly, these services in
 ## SOAP Services
  
  
-  1- ** saveData(MeasureData md) ** Saves Measure Data
+  1- **saveData(MeasureData md)** Saves Measure Data
  
-  2- ** getLatestData(int telegramId, int limit) ** return the latest data in the database
+  2- **getLatestData(int telegramId, int limit)** return the latest data in the database
  
-  3- ** userExists(int id) ** tells you if a user is already registered
+  3- **userExists(int id)** tells you if a user is already registered
  
-  4- ** getUser(int id) ** return the user data given it's id
+  4- **getUser(int id)** return the user data given it's id
  
-  5- ** createUser(UserData user) ** create a new user
+  5- **createUser(UserData user)** create a new user
