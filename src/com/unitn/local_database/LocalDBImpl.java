@@ -49,14 +49,15 @@ public class LocalDBImpl implements LocalDB {
     }
 
     @Override
-    public List<MeasureData> getLatestData(int id, int limit) {
+    public List<MeasureData> getLatestData(int id, long timestamp) {
         EntityManager em = Dao.instance.createEntityManager();
 
         List<MeasureData> ls = em
                 .createQuery(
                         "SELECT l from MeasureData l "
-                                + "WHERE l.idTelegram = :id")
+                                + "WHERE l.idTelegram = :id and l.timestamp >= :timestamp")
                 .setParameter("id", id)
+                .setParameter("timestamp", timestamp)
                 .getResultList();
 
         Dao.instance.closeConnections(em);
